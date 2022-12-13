@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/media/sf_Debian/Malok/custom_unistd.h
+unistd.h
+-
+stdint.h
+-
+
+/media/sf_Debian/Malok/heap.c
+heap.h
+/media/sf_Debian/Malok/heap.h
+tested_declarations.h
+/media/sf_Debian/Malok/tested_declarations.h
+rdebug.h
+/media/sf_Debian/Malok/rdebug.h
+
+/media/sf_Debian/Malok/heap.h
+stdio.h
+-
+stdlib.h
+-
+custom_unistd.h
+/media/sf_Debian/Malok/custom_unistd.h
+
+/media/sf_Debian/Malok/rdebug.h
+
+/media/sf_Debian/Malok/tested_declarations.h
+heap.h
+/media/sf_Debian/Malok/heap.h
+custom_unistd.h
+/media/sf_Debian/Malok/custom_unistd.h
+time.h
+-
+
