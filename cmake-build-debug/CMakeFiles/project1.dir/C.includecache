@@ -25,6 +25,8 @@ stdio.h
 -
 stdlib.h
 -
+string.h
+-
 custom_unistd.h
 /media/sf_Debian/Malok/custom_unistd.h
 

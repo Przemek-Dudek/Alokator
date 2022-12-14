@@ -2,6 +2,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "custom_unistd.h"
 
 #define PLOTEK 4

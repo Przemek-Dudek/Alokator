@@ -52,22 +52,23 @@ void* heap_malloc(size_t size)
             return NULL;
         }
 
-        struct memory_chunk_t *first = (struct memory_chunk_t *) memory_manager.memory_start;
-        first->next = NULL;
-        first->prev = NULL;
-        first->free = 0;
-        first->size = size;
+        struct memory_chunk_t *tmp = (struct memory_chunk_t *) memory_manager.memory_start;
+        tmp->next = NULL;
+        tmp->prev = NULL;
+        tmp->free = 0;
+        tmp->size = size;
 
         for (int i = 0; i < PLOTEK; ++i) {
-            *((char *) first + i + sizeof(struct memory_chunk_t)) = '#';
-            *((char *) first + i + size + sizeof(struct memory_chunk_t) + PLOTEK) = '#';
+            *((char *) tmp + i + sizeof(struct memory_chunk_t)) = '#';
+            *((char *) tmp + i + size + sizeof(struct memory_chunk_t) + PLOTEK) = '#';
         }
 
-        memory_manager.first_memory_chunk = first;
-        return (char *)first + sizeof(struct memory_chunk_t) + PLOTEK;
+        memory_manager.first_memory_chunk = tmp;
+        return (char *)tmp + sizeof(struct memory_chunk_t) + PLOTEK;
     }
 
     //check if any free blocs of sufficient size exist
+    //DO PRZEPISANIA **********************************
     struct memory_chunk_t *tmp;
     tmp = check_mem_holes(size);
     if(tmp != NULL) {
@@ -79,8 +80,11 @@ void* heap_malloc(size_t size)
             *((char*)tmp + sizeof(struct memory_chunk_t) + i + tmp->size + PLOTEK) = '#';
         }
 
-        return tmp + sizeof(struct memory_chunk_t) + PLOTEK;
+        return (char *)tmp + sizeof(struct memory_chunk_t) + PLOTEK;
     }
+    //*************************************************
+
+    //########## NEXT BLOCK ##########
 
     tmp = memory_manager.first_memory_chunk;
 
@@ -88,20 +92,19 @@ void* heap_malloc(size_t size)
         tmp = tmp->next;
     }
 
-    tmp->next = custom_sbrk(size + PLOTEK*2 + sizeof(struct memory_chunk_t));
-    if(tmp->next == (void*)-1) {
-        memory_manager.first_memory_chunk = NULL;
+    void *new_mem = custom_sbrk(size + PLOTEK*2 + sizeof(struct memory_chunk_t));
+    if (new_mem == (void *) -1) {
+        new_mem = NULL;
         return NULL;
     }
 
-    memory_manager.memory_size += size + 2*PLOTEK + sizeof(struct memory_chunk_t);
+    memory_manager.memory_size += size + PLOTEK*2 + sizeof(struct memory_chunk_t);
 
-    struct memory_chunk_t *new = tmp->next;
-
+    struct memory_chunk_t *new = (struct memory_chunk_t *) new_mem;
     new->next = NULL;
     new->prev = tmp;
-    new->size = size;
     new->free = 0;
+    new->size = size;
 
     for (int i = 0; i < PLOTEK; ++i) {
         *((char *) new + i + sizeof(struct memory_chunk_t)) = '#';
@@ -109,8 +112,7 @@ void* heap_malloc(size_t size)
     }
 
     tmp->next = new;
-
-    return new + sizeof(struct memory_chunk_t) + PLOTEK;
+    return (char *)new + sizeof(struct memory_chunk_t) + PLOTEK;
 }
 
 void* heap_calloc(size_t number, size_t size)
@@ -124,9 +126,7 @@ void* heap_calloc(size_t number, size_t size)
         return NULL;
     }
 
-    for(size_t i = 0; i < size*number; i++) {
-        *(tmp+i) = 0;
-    }
+    memset(tmp, 0, size*number);
 
     return tmp;
 }
@@ -147,15 +147,23 @@ void heap_free(void* memblock)
 
     struct memory_chunk_t *tmp = memory_manager.first_memory_chunk;
 
-    while (tmp) {
-        if(tmp == (struct memory_chunk_t*)memblock - PLOTEK - sizeof(struct memory_chunk_t)) {
+    while (tmp!= NULL) {
+        if((char*)tmp +PLOTEK + sizeof(struct memory_chunk_t) == (char*)memblock  ) {
+            tmp->free = 1;
             break;
         }
 
         tmp = tmp->next;
     }
 
-    tmp->free = 1;
+
+
+    if(tmp->next == NULL && tmp->free) {
+        tmp->prev->next = NULL;
+        tmp = custom_sbrk(-1*(tmp->size+PLOTEK*2+ sizeof(struct memory_chunk_t)));
+        memory_manager.memory_size -= tmp->size+PLOTEK*2+ sizeof(struct memory_chunk_t);
+        tmp = NULL;
+    }
 }
 
 size_t heap_get_largest_used_block_size(void)
@@ -180,7 +188,7 @@ enum pointer_type_t get_pointer_type(const void* const pointer)
             return pointer_control_block;
         }
 
-        if(((struct memory_chunk_t*)pointer - PLOTEK - sizeof(struct memory_chunk_t))->free == 1) {
+        if((char*)pointer - PLOTEK - sizeof(struct memory_chunk_t) == (char*)tmp && tmp->free == 1) {
             return pointer_unallocated;
         }
 
