@@ -15,6 +15,14 @@ int heap_setup(void)
     return 0;
 }
 
+int hash_calculate(struct memory_chunk_t *mem)
+{
+    int val = 0;
+    val += mem->size;
+
+    return val;
+}
+
 void heap_clean(void)
 {
     custom_sbrk(memory_manager.memory_size*(-1));
@@ -68,7 +76,6 @@ void* heap_malloc(size_t size)
     }
 
     //check if any free blocs of sufficient size exist
-    //DO PRZEPISANIA **********************************
     struct memory_chunk_t *tmp;
     tmp = check_mem_holes(size);
     if(tmp != NULL) {
@@ -82,7 +89,7 @@ void* heap_malloc(size_t size)
 
         return (char *)tmp + sizeof(struct memory_chunk_t) + PLOTEK;
     }
-    //*************************************************
+
 
     //########## NEXT BLOCK ##########
 
@@ -136,6 +143,54 @@ void* heap_realloc(void* memblock, size_t count)
     return NULL;
 }
 
+void heap_connect(struct memory_chunk_t *mem)
+{
+    struct memory_chunk_t *tmp = (struct memory_chunk_t*)mem;
+
+    while(mem) {
+        if(mem->free == 1) {
+            tmp = mem;
+        }
+
+        mem = mem->next;
+
+        if(tmp->free && mem && mem->free == 1) {
+            tmp->size += mem->size + sizeof(struct memory_chunk_t) + PLOTEK*2;
+
+            tmp->next = mem->next;
+            if(mem->next) {
+                mem->next->prev = tmp;
+            }
+        } else {
+            tmp = tmp->next;
+        }
+
+        if(mem->next == NULL) {
+            break;
+        }
+
+        mem = tmp;
+    }
+}
+
+void check_destroy(struct memory_chunk_t *mem)
+{
+    int flag = 1;
+
+    while(mem != NULL) {
+        if(!mem->free) {
+            flag = 0;
+        }
+
+        mem = mem->next;
+    }
+
+    if(flag) {
+        memory_manager.memory_start = memory_manager.first_memory_chunk;
+        memory_manager.first_memory_chunk = NULL;
+    }
+}
+
 void heap_free(void* memblock)
 {
     if(memblock == NULL) return;
@@ -147,28 +202,48 @@ void heap_free(void* memblock)
 
     struct memory_chunk_t *tmp = memory_manager.first_memory_chunk;
 
-    while (tmp!= NULL) {
+    while (tmp != NULL) {
         if((char*)tmp +PLOTEK + sizeof(struct memory_chunk_t) == (char*)memblock  ) {
             tmp->free = 1;
+
+            check_destroy(tmp);
+
+            heap_connect((struct memory_chunk_t*)memory_manager.first_memory_chunk);
+
+            /*if(tmp->next == NULL && tmp->free) {
+                if(tmp->prev != NULL) {
+                    tmp->prev->next = NULL;
+                }
+            }*/
+
             break;
         }
 
         tmp = tmp->next;
     }
-
-
-
-    if(tmp->next == NULL && tmp->free) {
-        tmp->prev->next = NULL;
-        tmp = custom_sbrk(-1*(tmp->size+PLOTEK*2+ sizeof(struct memory_chunk_t)));
-        memory_manager.memory_size -= tmp->size+PLOTEK*2+ sizeof(struct memory_chunk_t);
-        tmp = NULL;
-    }
 }
 
 size_t heap_get_largest_used_block_size(void)
 {
-    return 0;
+    if(memory_manager.memory_size == 0 || memory_manager.first_memory_chunk == NULL) {
+        return 0;
+    }
+
+    if(heap_validate() != 0) {
+        return 0;
+    }
+
+    struct memory_chunk_t *tmp = memory_manager.first_memory_chunk;
+
+    size_t res = 0;
+
+    while(tmp != NULL) {
+        if(tmp->size > res && !tmp->free) res = tmp->size;
+
+        tmp = tmp->next;
+    }
+
+    return res;
 }
 
 enum pointer_type_t get_pointer_type(const void* const pointer)
@@ -184,18 +259,28 @@ enum pointer_type_t get_pointer_type(const void* const pointer)
     struct memory_chunk_t *tmp = memory_manager.first_memory_chunk;
 
     while(tmp){
-        if((char*)tmp <= (char*)pointer && (char*)tmp + sizeof(struct memory_chunk_t) > (char*)pointer) {
-            return pointer_control_block;
-        }
+        if(!tmp->free) {
+            if((char*)tmp <= (char*)pointer && (char*)tmp + sizeof(struct memory_chunk_t) > (char*)pointer) {
+                return pointer_control_block;
+            }
 
-        if((char*)pointer - PLOTEK - sizeof(struct memory_chunk_t) == (char*)tmp && tmp->free == 1) {
-            return pointer_unallocated;
+            if((char*)pointer >= (char*)tmp + sizeof(struct memory_chunk_t) && (char*)pointer < (char*)tmp + sizeof(struct memory_chunk_t) + PLOTEK) {
+                return pointer_inside_fences;
+            }
+
+            if((char*)pointer == (char*)tmp + sizeof(struct memory_chunk_t) + PLOTEK) {
+                return pointer_valid;
+            }
+
+            if((char*)pointer >= (char*)tmp + sizeof(struct memory_chunk_t) + PLOTEK + tmp->size && (char*)pointer < (char*)tmp + sizeof(struct memory_chunk_t) + 2*PLOTEK + tmp->size) {
+                return pointer_inside_fences;
+            }
         }
 
         tmp = tmp->next;
     }
 
-    return pointer_valid;
+    return pointer_unallocated;
 }
 
 int heap_validate(void)
@@ -204,6 +289,7 @@ int heap_validate(void)
     if(tmp == NULL) {
         return 0;
     }
+
 
     do {
         for(int i = 0; i < PLOTEK; i++) {

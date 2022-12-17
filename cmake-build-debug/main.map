@@ -1018,7 +1018,7 @@ LOAD /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/crtn.o
 .plt.sec
  *(.plt.sec)
 
-.text           0x0000000000003390    0x1abf1
+.text           0x0000000000003390    0x1ae11
  *(.text.unlikely .text.*_unlikely .text.unlikely.*)
  *(.text.exit .text.exit.*)
  *(.text.startup .text.startup.*)
@@ -1031,214 +1031,218 @@ LOAD /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/crtn.o
  .text          0x00000000000033c0       0xb5 /usr/lib/gcc/x86_64-linux-gnu/8/crtbeginS.o
  .text          0x0000000000003475        0xb CMakeFiles/project1.dir/main.c.o
                 0x0000000000003475                main
- .text          0x0000000000003480      0x5cf CMakeFiles/project1.dir/heap.c.o
+ .text          0x0000000000003480      0x7ee CMakeFiles/project1.dir/heap.c.o
                 0x0000000000003480                heap_setup
-                0x00000000000034c6                heap_clean
-                0x00000000000034f5                check_mem_holes
-                0x000000000000354a                heap_malloc
-                0x00000000000037ca                heap_calloc
-                0x0000000000003835                heap_realloc
-                0x0000000000003848                heap_free
-                0x0000000000003927                heap_get_largest_used_block_size
-                0x0000000000003932                get_pointer_type
-                0x00000000000039c4                heap_validate
- .text          0x0000000000003a4f      0xa75 CMakeFiles/project1.dir/unit_helper_v2.c.o
-                0x0000000000003a4f                unit_test_init
-                0x0000000000003abf                test_title
-                0x0000000000003af2                test_start
-                0x0000000000003b75                test_summary
-                0x0000000000003c1e                test_result_internal
-                0x0000000000003e96                test_terminate_session
-                0x0000000000003eb3                test_get_session_termination_flag
-                0x0000000000003ebf                test_set_session_leaks
-                0x0000000000003ed2                test_single_has_failed
-                0x0000000000003ee6                test_session_get_fail_count
-                0x0000000000003ef2                mem_find_first_difference
-                0x0000000000003f98                mem_get_byte
-                0x0000000000003fbd                mem_dump_diff
-                0x00000000000041b6                mem_compare
-                0x0000000000004213                test_internal_error
-                0x0000000000004296                test_limit_init
-                0x00000000000042b3                test_memory_limit_setup
-                0x000000000000435e                test_memory_limit_restore
-                0x0000000000004365                test_signal_handler
-                0x00000000000043ca                test_file_write_limit_setup
-                0x0000000000004473                test_file_write_limit_restore
- .text          0x00000000000044c4    0x15bea CMakeFiles/project1.dir/unit_test_v2.c.o
-                0x00000000000044c4                UTEST1
-                0x000000000000465a                UTEST2
-                0x00000000000047f0                UTEST3
-                0x0000000000004998                UTEST4
-                0x0000000000004c2f                UTEST5
-                0x0000000000004f60                UTEST6
-                0x000000000000523a                UTEST7
-                0x000000000000570d                UTEST8
-                0x0000000000005be0                UTEST9
-                0x00000000000060c2                UTEST10
-                0x00000000000064c6                UTEST11
-                0x0000000000006a2f                UTEST12
-                0x0000000000006f98                UTEST13
-                0x0000000000007133                UTEST14
-                0x00000000000072ce                UTEST15
-                0x0000000000007469                UTEST16
-                0x0000000000007604                UTEST17
-                0x000000000000779f                UTEST18
-                0x0000000000007a48                UTEST19
-                0x0000000000007cf6                UTEST20
-                0x00000000000080f5                UTEST21
-                0x00000000000084f1                UTEST22
-                0x0000000000008834                UTEST23
-                0x0000000000008ea3                UTEST24
-                0x000000000000950f                UTEST25
-                0x0000000000009c2f                UTEST26
-                0x000000000000a3ba                UTEST27
-                0x000000000000aabc                UTEST28
-                0x000000000000ab79                UTEST29
-                0x000000000000ad1b                UTEST30
-                0x000000000000b0e4                UTEST31
-                0x000000000000b3a8                UTEST32
-                0x000000000000b7b9                UTEST33
-                0x000000000000b9c5                UTEST34
-                0x000000000000be95                UTEST35
-                0x000000000000c2b7                UTEST36
-                0x000000000000c634                UTEST37
-                0x000000000000cb4e                UTEST38
-                0x000000000000d10f                UTEST39
-                0x000000000000d803                UTEST40
-                0x000000000000de6a                UTEST41
-                0x000000000000e604                UTEST42
-                0x000000000000ed64                UTEST43
-                0x000000000000f5f7                UTEST44
-                0x000000000000fcd6                UTEST45
-                0x00000000000104c0                UTEST46
-                0x0000000000010caa                UTEST47
-                0x0000000000011542                UTEST48
-                0x0000000000011876                UTEST49
-                0x0000000000011923                UTEST50
-                0x0000000000011abe                UTEST51
-                0x0000000000011c6c                UTEST52
-                0x0000000000011fff                UTEST53
-                0x00000000000122d4                UTEST54
-                0x0000000000012501                UTEST55
-                0x00000000000127d6                UTEST56
-                0x0000000000012aab                UTEST57
-                0x0000000000012db2                UTEST58
-                0x0000000000012f65                UTEST59
-                0x0000000000013306                UTEST60
-                0x00000000000135e5                UTEST61
-                0x0000000000013817                UTEST62
-                0x0000000000013af6                UTEST63
-                0x0000000000013ba0                UTEST64
-                0x0000000000013d99                UTEST65
-                0x0000000000014049                UTEST66
-                0x00000000000142f9                UTEST67
-                0x0000000000014685                UTEST68
-                0x0000000000014a72                UTEST69
-                0x0000000000014f1a                UTEST70
-                0x00000000000153fa                UTEST71
-                0x0000000000015595                UTEST72
-                0x0000000000015646                UTEST73
-                0x0000000000015838                UTEST74
-                0x0000000000015ad5                UTEST75
-                0x0000000000015e25                UTEST76
-                0x0000000000016485                UTEST77
-                0x0000000000016a0d                UTEST78
-                0x0000000000016f56                UTEST79
-                0x0000000000017496                UTEST80
-                0x0000000000017a1d                UTEST81
-                0x0000000000017fb7                UTEST82
-                0x000000000001855e                UTEST83
-                0x0000000000018b60                UTEST84
-                0x0000000000019195                UTEST85
-                0x000000000001967c                UTEST86
-                0x0000000000019d37                __wrap_main
- .text          0x000000000001a0ae     0x36a6 CMakeFiles/project1.dir/rdebug.c.o
-                0x000000000001a569                print_source_location
-                0x000000000001a8c0                _rldebug_heap_wrapper
-                0x000000000001bb4c                _rldebug_str_wrapper
-                0x000000000001c45d                _rldebug_io_wrapper
-                0x000000000001c7e4                _rldebug_stdlib_noreturn_wrapper
-                0x000000000001c90d                rldebug_show_leaked_resources
-                0x000000000001ce99                rldebug_heap_get_leak_size
-                0x000000000001cee5                rldebug_get_block_size
-                0x000000000001d3eb                rldebug_reset_limits
-                0x000000000001d47d                rldebug_heap_set_global_limit
-                0x000000000001d4b9                rldebug_heap_disable_all_functions
-                0x000000000001d4cc                rldebug_heap_set_function_singleshot_limit
-                0x000000000001d52b                rldebug_heap_set_function_cumulative_limit
-                0x000000000001d58a                rldebug_set_function_success_limit
-                0x000000000001d5e9                rldebug_set_reported_severity_level
-                0x000000000001d5fc                remove_single_newline
-                0x000000000001d680                rdebug_call_main
- .text          0x000000000001d754      0x7cc CMakeFiles/project1.dir/memmanager.c.o
-                0x000000000001d754                memory_init
-                0x000000000001da42                memory_check
-                0x000000000001dcd1                custom_sbrk_check_fences_integrity
-                0x000000000001dd45                custom_sbrk_get_reserved_memory
-                0x000000000001dd83                custom_sbrk
- .text          0x000000000001df20       0x61 //usr/lib/x86_64-linux-gnu/libc_nonshared.a(elf-init.oS)
-                0x000000000001df20                __libc_csu_init
-                0x000000000001df80                __libc_csu_fini
- .text          0x000000000001df81        0x0 /usr/lib/gcc/x86_64-linux-gnu/8/crtendS.o
- .text          0x000000000001df81        0x0 /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/crtn.o
+                0x00000000000034c6                hash_calculate
+                0x00000000000034ec                heap_clean
+                0x000000000000351b                check_mem_holes
+                0x0000000000003570                heap_malloc
+                0x00000000000037f0                heap_calloc
+                0x000000000000385b                heap_realloc
+                0x000000000000386e                heap_connect
+                0x0000000000003940                check_destroy
+                0x0000000000003998                heap_free
+                0x0000000000003a58                heap_get_largest_used_block_size
+                0x0000000000003ae2                get_pointer_type
+                0x0000000000003be3                heap_validate
+ .text          0x0000000000003c6e      0xa75 CMakeFiles/project1.dir/unit_helper_v2.c.o
+                0x0000000000003c6e                unit_test_init
+                0x0000000000003cde                test_title
+                0x0000000000003d11                test_start
+                0x0000000000003d94                test_summary
+                0x0000000000003e3d                test_result_internal
+                0x00000000000040b5                test_terminate_session
+                0x00000000000040d2                test_get_session_termination_flag
+                0x00000000000040de                test_set_session_leaks
+                0x00000000000040f1                test_single_has_failed
+                0x0000000000004105                test_session_get_fail_count
+                0x0000000000004111                mem_find_first_difference
+                0x00000000000041b7                mem_get_byte
+                0x00000000000041dc                mem_dump_diff
+                0x00000000000043d5                mem_compare
+                0x0000000000004432                test_internal_error
+                0x00000000000044b5                test_limit_init
+                0x00000000000044d2                test_memory_limit_setup
+                0x000000000000457d                test_memory_limit_restore
+                0x0000000000004584                test_signal_handler
+                0x00000000000045e9                test_file_write_limit_setup
+                0x0000000000004692                test_file_write_limit_restore
+ .text          0x00000000000046e3    0x15bea CMakeFiles/project1.dir/unit_test_v2.c.o
+                0x00000000000046e3                UTEST1
+                0x0000000000004879                UTEST2
+                0x0000000000004a0f                UTEST3
+                0x0000000000004bb7                UTEST4
+                0x0000000000004e4e                UTEST5
+                0x000000000000517f                UTEST6
+                0x0000000000005459                UTEST7
+                0x000000000000592c                UTEST8
+                0x0000000000005dff                UTEST9
+                0x00000000000062e1                UTEST10
+                0x00000000000066e5                UTEST11
+                0x0000000000006c4e                UTEST12
+                0x00000000000071b7                UTEST13
+                0x0000000000007352                UTEST14
+                0x00000000000074ed                UTEST15
+                0x0000000000007688                UTEST16
+                0x0000000000007823                UTEST17
+                0x00000000000079be                UTEST18
+                0x0000000000007c67                UTEST19
+                0x0000000000007f15                UTEST20
+                0x0000000000008314                UTEST21
+                0x0000000000008710                UTEST22
+                0x0000000000008a53                UTEST23
+                0x00000000000090c2                UTEST24
+                0x000000000000972e                UTEST25
+                0x0000000000009e4e                UTEST26
+                0x000000000000a5d9                UTEST27
+                0x000000000000acdb                UTEST28
+                0x000000000000ad98                UTEST29
+                0x000000000000af3a                UTEST30
+                0x000000000000b303                UTEST31
+                0x000000000000b5c7                UTEST32
+                0x000000000000b9d8                UTEST33
+                0x000000000000bbe4                UTEST34
+                0x000000000000c0b4                UTEST35
+                0x000000000000c4d6                UTEST36
+                0x000000000000c853                UTEST37
+                0x000000000000cd6d                UTEST38
+                0x000000000000d32e                UTEST39
+                0x000000000000da22                UTEST40
+                0x000000000000e089                UTEST41
+                0x000000000000e823                UTEST42
+                0x000000000000ef83                UTEST43
+                0x000000000000f816                UTEST44
+                0x000000000000fef5                UTEST45
+                0x00000000000106df                UTEST46
+                0x0000000000010ec9                UTEST47
+                0x0000000000011761                UTEST48
+                0x0000000000011a95                UTEST49
+                0x0000000000011b42                UTEST50
+                0x0000000000011cdd                UTEST51
+                0x0000000000011e8b                UTEST52
+                0x000000000001221e                UTEST53
+                0x00000000000124f3                UTEST54
+                0x0000000000012720                UTEST55
+                0x00000000000129f5                UTEST56
+                0x0000000000012cca                UTEST57
+                0x0000000000012fd1                UTEST58
+                0x0000000000013184                UTEST59
+                0x0000000000013525                UTEST60
+                0x0000000000013804                UTEST61
+                0x0000000000013a36                UTEST62
+                0x0000000000013d15                UTEST63
+                0x0000000000013dbf                UTEST64
+                0x0000000000013fb8                UTEST65
+                0x0000000000014268                UTEST66
+                0x0000000000014518                UTEST67
+                0x00000000000148a4                UTEST68
+                0x0000000000014c91                UTEST69
+                0x0000000000015139                UTEST70
+                0x0000000000015619                UTEST71
+                0x00000000000157b4                UTEST72
+                0x0000000000015865                UTEST73
+                0x0000000000015a57                UTEST74
+                0x0000000000015cf4                UTEST75
+                0x0000000000016044                UTEST76
+                0x00000000000166a4                UTEST77
+                0x0000000000016c2c                UTEST78
+                0x0000000000017175                UTEST79
+                0x00000000000176b5                UTEST80
+                0x0000000000017c3c                UTEST81
+                0x00000000000181d6                UTEST82
+                0x000000000001877d                UTEST83
+                0x0000000000018d7f                UTEST84
+                0x00000000000193b4                UTEST85
+                0x000000000001989b                UTEST86
+                0x0000000000019f56                __wrap_main
+ .text          0x000000000001a2cd     0x36a6 CMakeFiles/project1.dir/rdebug.c.o
+                0x000000000001a788                print_source_location
+                0x000000000001aadf                _rldebug_heap_wrapper
+                0x000000000001bd6b                _rldebug_str_wrapper
+                0x000000000001c67c                _rldebug_io_wrapper
+                0x000000000001ca03                _rldebug_stdlib_noreturn_wrapper
+                0x000000000001cb2c                rldebug_show_leaked_resources
+                0x000000000001d0b8                rldebug_heap_get_leak_size
+                0x000000000001d104                rldebug_get_block_size
+                0x000000000001d60a                rldebug_reset_limits
+                0x000000000001d69c                rldebug_heap_set_global_limit
+                0x000000000001d6d8                rldebug_heap_disable_all_functions
+                0x000000000001d6eb                rldebug_heap_set_function_singleshot_limit
+                0x000000000001d74a                rldebug_heap_set_function_cumulative_limit
+                0x000000000001d7a9                rldebug_set_function_success_limit
+                0x000000000001d808                rldebug_set_reported_severity_level
+                0x000000000001d81b                remove_single_newline
+                0x000000000001d89f                rdebug_call_main
+ .text          0x000000000001d973      0x7cc CMakeFiles/project1.dir/memmanager.c.o
+                0x000000000001d973                memory_init
+                0x000000000001dc61                memory_check
+                0x000000000001def0                custom_sbrk_check_fences_integrity
+                0x000000000001df64                custom_sbrk_get_reserved_memory
+                0x000000000001dfa2                custom_sbrk
+ *fill*         0x000000000001e13f        0x1 
+ .text          0x000000000001e140       0x61 //usr/lib/x86_64-linux-gnu/libc_nonshared.a(elf-init.oS)
+                0x000000000001e140                __libc_csu_init
+                0x000000000001e1a0                __libc_csu_fini
+ .text          0x000000000001e1a1        0x0 /usr/lib/gcc/x86_64-linux-gnu/8/crtendS.o
+ .text          0x000000000001e1a1        0x0 /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/crtn.o
  *(.gnu.warning)
 
-.fini           0x000000000001df84        0x9
+.fini           0x000000000001e1a4        0x9
  *(SORT_NONE(.fini))
- .fini          0x000000000001df84        0x4 /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/crti.o
-                0x000000000001df84                _fini
- .fini          0x000000000001df88        0x5 /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/crtn.o
+ .fini          0x000000000001e1a4        0x4 /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/crti.o
+                0x000000000001e1a4                _fini
+ .fini          0x000000000001e1a8        0x5 /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/crtn.o
                 [!provide]                        PROVIDE (__etext = .)
                 [!provide]                        PROVIDE (_etext = .)
                 [!provide]                        PROVIDE (etext = .)
-                0x000000000001e000                . = ALIGN (CONSTANT (MAXPAGESIZE))
-                0x000000000001e000                . = SEGMENT_START ("rodata-segment", (ALIGN (CONSTANT (MAXPAGESIZE)) + (. & (CONSTANT (MAXPAGESIZE) - 0x1))))
+                0x000000000001f000                . = ALIGN (CONSTANT (MAXPAGESIZE))
+                0x000000000001f000                . = SEGMENT_START ("rodata-segment", (ALIGN (CONSTANT (MAXPAGESIZE)) + (. & (CONSTANT (MAXPAGESIZE) - 0x1))))
 
-.rodata         0x000000000001e000     0x69d0
+.rodata         0x000000000001f000     0x69d0
  *(.rodata .rodata.* .gnu.linkonce.r.*)
- .rodata.cst4   0x000000000001e000        0x4 /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/Scrt1.o
-                0x000000000001e000                _IO_stdin_used
- *fill*         0x000000000001e004        0xc 
- .rodata        0x000000000001e010      0x5e4 CMakeFiles/project1.dir/unit_helper_v2.c.o
- *fill*         0x000000000001e5f4        0xc 
- .rodata        0x000000000001e600     0x465b CMakeFiles/project1.dir/unit_test_v2.c.o
- *fill*         0x0000000000022c5b        0x5 
- .rodata        0x0000000000022c60     0x1a41 CMakeFiles/project1.dir/rdebug.c.o
- *fill*         0x00000000000246a1        0x7 
- .rodata        0x00000000000246a8      0x328 CMakeFiles/project1.dir/memmanager.c.o
+ .rodata.cst4   0x000000000001f000        0x4 /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/Scrt1.o
+                0x000000000001f000                _IO_stdin_used
+ *fill*         0x000000000001f004        0xc 
+ .rodata        0x000000000001f010      0x5e4 CMakeFiles/project1.dir/unit_helper_v2.c.o
+ *fill*         0x000000000001f5f4        0xc 
+ .rodata        0x000000000001f600     0x465b CMakeFiles/project1.dir/unit_test_v2.c.o
+ *fill*         0x0000000000023c5b        0x5 
+ .rodata        0x0000000000023c60     0x1a41 CMakeFiles/project1.dir/rdebug.c.o
+ *fill*         0x00000000000256a1        0x7 
+ .rodata        0x00000000000256a8      0x328 CMakeFiles/project1.dir/memmanager.c.o
 
 .rodata1
  *(.rodata1)
 
-.eh_frame_hdr   0x00000000000249d0      0x514
+.eh_frame_hdr   0x00000000000259d0      0x52c
  *(.eh_frame_hdr)
- .eh_frame_hdr  0x00000000000249d0      0x514 /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/Scrt1.o
-                0x00000000000249d0                __GNU_EH_FRAME_HDR
+ .eh_frame_hdr  0x00000000000259d0      0x52c /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/Scrt1.o
+                0x00000000000259d0                __GNU_EH_FRAME_HDR
  *(.eh_frame_entry .eh_frame_entry.*)
 
-.eh_frame       0x0000000000024ee8     0x1470
+.eh_frame       0x0000000000025f00     0x14d0
  *(.eh_frame)
- .eh_frame      0x0000000000024ee8       0x30 /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/Scrt1.o
+ .eh_frame      0x0000000000025f00       0x30 /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/Scrt1.o
                                          0x2c (size before relaxing)
- *fill*         0x0000000000024f18        0x0 
- .eh_frame      0x0000000000024f18       0x40 /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/Scrt1.o
- .eh_frame      0x0000000000024f58       0x18 /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/Scrt1.o
+ *fill*         0x0000000000025f30        0x0 
+ .eh_frame      0x0000000000025f30       0x40 /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/Scrt1.o
+ .eh_frame      0x0000000000025f70       0x18 /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/Scrt1.o
                                          0x30 (size before relaxing)
- .eh_frame      0x0000000000024f70       0x20 CMakeFiles/project1.dir/main.c.o
+ .eh_frame      0x0000000000025f88       0x20 CMakeFiles/project1.dir/main.c.o
                                          0x38 (size before relaxing)
- .eh_frame      0x0000000000024f90      0x140 CMakeFiles/project1.dir/heap.c.o
-                                        0x158 (size before relaxing)
- .eh_frame      0x00000000000250d0      0x2a0 CMakeFiles/project1.dir/unit_helper_v2.c.o
+ .eh_frame      0x0000000000025fa8      0x1a0 CMakeFiles/project1.dir/heap.c.o
+                                        0x1b8 (size before relaxing)
+ .eh_frame      0x0000000000026148      0x2a0 CMakeFiles/project1.dir/unit_helper_v2.c.o
                                         0x2b8 (size before relaxing)
- .eh_frame      0x0000000000025370      0xae8 CMakeFiles/project1.dir/unit_test_v2.c.o
+ .eh_frame      0x00000000000263e8      0xae8 CMakeFiles/project1.dir/unit_test_v2.c.o
                                         0xb00 (size before relaxing)
- .eh_frame      0x0000000000025e58      0x3e0 CMakeFiles/project1.dir/rdebug.c.o
+ .eh_frame      0x0000000000026ed0      0x3e0 CMakeFiles/project1.dir/rdebug.c.o
                                         0x3f8 (size before relaxing)
- .eh_frame      0x0000000000026238       0xc0 CMakeFiles/project1.dir/memmanager.c.o
+ .eh_frame      0x00000000000272b0       0xc0 CMakeFiles/project1.dir/memmanager.c.o
                                          0xd8 (size before relaxing)
- .eh_frame      0x00000000000262f8       0x5c //usr/lib/x86_64-linux-gnu/libc_nonshared.a(elf-init.oS)
+ .eh_frame      0x0000000000027370       0x5c //usr/lib/x86_64-linux-gnu/libc_nonshared.a(elf-init.oS)
                                          0x78 (size before relaxing)
- .eh_frame      0x0000000000026354        0x4 /usr/lib/gcc/x86_64-linux-gnu/8/crtendS.o
+ .eh_frame      0x00000000000273cc        0x4 /usr/lib/gcc/x86_64-linux-gnu/8/crtendS.o
  *(.eh_frame.*)
 
 .gcc_except_table
@@ -1249,7 +1253,7 @@ LOAD /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/crtn.o
 
 .exception_ranges
  *(.exception_ranges .exception_ranges*)
-                0x0000000000027db0                . = DATA_SEGMENT_ALIGN (CONSTANT (MAXPAGESIZE), CONSTANT (COMMONPAGESIZE))
+                0x0000000000028db0                . = DATA_SEGMENT_ALIGN (CONSTANT (MAXPAGESIZE), CONSTANT (COMMONPAGESIZE))
 
 .eh_frame
  *(.eh_frame)
@@ -1264,7 +1268,7 @@ LOAD /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/crtn.o
 .exception_ranges
  *(.exception_ranges .exception_ranges*)
 
-.tdata          0x0000000000027db0        0x0
+.tdata          0x0000000000028db0        0x0
                 [!provide]                        PROVIDE (__tdata_start = .)
  *(.tdata .tdata.* .gnu.linkonce.td.*)
 
@@ -1272,26 +1276,26 @@ LOAD /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/crtn.o
  *(.tbss .tbss.* .gnu.linkonce.tb.*)
  *(.tcommon)
 
-.preinit_array  0x0000000000027db0        0x0
+.preinit_array  0x0000000000028db0        0x0
                 [!provide]                        PROVIDE (__preinit_array_start = .)
  *(.preinit_array)
                 [!provide]                        PROVIDE (__preinit_array_end = .)
 
-.init_array     0x0000000000027db0       0x18
-                0x0000000000027db0                PROVIDE (__init_array_start = .)
+.init_array     0x0000000000028db0       0x18
+                0x0000000000028db0                PROVIDE (__init_array_start = .)
  *(SORT_BY_INIT_PRIORITY(.init_array.*) SORT_BY_INIT_PRIORITY(.ctors.*))
  *(.init_array EXCLUDE_FILE(*crtend?.o *crtend.o *crtbegin?.o *crtbegin.o) .ctors)
- .init_array    0x0000000000027db0        0x8 /usr/lib/gcc/x86_64-linux-gnu/8/crtbeginS.o
- .init_array    0x0000000000027db8        0x8 CMakeFiles/project1.dir/rdebug.c.o
- .init_array    0x0000000000027dc0        0x8 CMakeFiles/project1.dir/memmanager.c.o
-                0x0000000000027dc8                PROVIDE (__init_array_end = .)
+ .init_array    0x0000000000028db0        0x8 /usr/lib/gcc/x86_64-linux-gnu/8/crtbeginS.o
+ .init_array    0x0000000000028db8        0x8 CMakeFiles/project1.dir/rdebug.c.o
+ .init_array    0x0000000000028dc0        0x8 CMakeFiles/project1.dir/memmanager.c.o
+                0x0000000000028dc8                PROVIDE (__init_array_end = .)
 
-.fini_array     0x0000000000027dc8       0x10
+.fini_array     0x0000000000028dc8       0x10
                 [!provide]                        PROVIDE (__fini_array_start = .)
  *(SORT_BY_INIT_PRIORITY(.fini_array.*) SORT_BY_INIT_PRIORITY(.dtors.*))
  *(.fini_array EXCLUDE_FILE(*crtend?.o *crtend.o *crtbegin?.o *crtbegin.o) .dtors)
- .fini_array    0x0000000000027dc8        0x8 /usr/lib/gcc/x86_64-linux-gnu/8/crtbeginS.o
- .fini_array    0x0000000000027dd0        0x8 CMakeFiles/project1.dir/memmanager.c.o
+ .fini_array    0x0000000000028dc8        0x8 /usr/lib/gcc/x86_64-linux-gnu/8/crtbeginS.o
+ .fini_array    0x0000000000028dd0        0x8 CMakeFiles/project1.dir/memmanager.c.o
                 [!provide]                        PROVIDE (__fini_array_end = .)
 
 .ctors
@@ -1311,114 +1315,114 @@ LOAD /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/crtn.o
 .jcr
  *(.jcr)
 
-.data.rel.ro    0x0000000000027dd8        0x0
+.data.rel.ro    0x0000000000028dd8        0x0
  *(.data.rel.ro.local* .gnu.linkonce.d.rel.ro.local.*)
  *(.data.rel.ro .data.rel.ro.* .gnu.linkonce.d.rel.ro.*)
- .data.rel.ro   0x0000000000027dd8        0x0 /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/Scrt1.o
+ .data.rel.ro   0x0000000000028dd8        0x0 /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/Scrt1.o
 
-.dynamic        0x0000000000027dd8      0x200
+.dynamic        0x0000000000028dd8      0x200
  *(.dynamic)
- .dynamic       0x0000000000027dd8      0x200 /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/Scrt1.o
-                0x0000000000027dd8                _DYNAMIC
+ .dynamic       0x0000000000028dd8      0x200 /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/Scrt1.o
+                0x0000000000028dd8                _DYNAMIC
 
-.got            0x0000000000027fd8       0x28
+.got            0x0000000000028fd8       0x28
  *(.got)
- .got           0x0000000000027fd8       0x28 /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/Scrt1.o
+ .got           0x0000000000028fd8       0x28 /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/Scrt1.o
  *(.igot)
-                0x0000000000028fe8                . = DATA_SEGMENT_RELRO_END (., (SIZEOF (.got.plt) >= 0x18)?0x18:0x0)
+                0x0000000000029fe8                . = DATA_SEGMENT_RELRO_END (., (SIZEOF (.got.plt) >= 0x18)?0x18:0x0)
 
-.got.plt        0x0000000000028000      0x1c0
+.got.plt        0x0000000000029000      0x1c0
  *(.got.plt)
- .got.plt       0x0000000000028000      0x1c0 /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/Scrt1.o
-                0x0000000000028000                _GLOBAL_OFFSET_TABLE_
+ .got.plt       0x0000000000029000      0x1c0 /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/Scrt1.o
+                0x0000000000029000                _GLOBAL_OFFSET_TABLE_
  *(.igot.plt)
 
-.data           0x00000000000281c0      0x4b0
+.data           0x00000000000291c0      0x4b0
  *(.data .data.* .gnu.linkonce.d.*)
- .data          0x00000000000281c0        0x4 /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/Scrt1.o
-                0x00000000000281c0                data_start
-                0x00000000000281c0                __data_start
- .data          0x00000000000281c4        0x0 /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/crti.o
- .data          0x00000000000281c4        0x0 /usr/lib/gcc/x86_64-linux-gnu/8/crtbeginS.o
- *fill*         0x00000000000281c4        0x4 
+ .data          0x00000000000291c0        0x4 /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/Scrt1.o
+                0x00000000000291c0                data_start
+                0x00000000000291c0                __data_start
+ .data          0x00000000000291c4        0x0 /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/crti.o
+ .data          0x00000000000291c4        0x0 /usr/lib/gcc/x86_64-linux-gnu/8/crtbeginS.o
+ *fill*         0x00000000000291c4        0x4 
  .data.rel.local
-                0x00000000000281c8        0x8 /usr/lib/gcc/x86_64-linux-gnu/8/crtbeginS.o
-                0x00000000000281c8                __dso_handle
- .data          0x00000000000281d0        0x0 CMakeFiles/project1.dir/main.c.o
- .data          0x00000000000281d0        0x0 CMakeFiles/project1.dir/heap.c.o
- .data          0x00000000000281d0        0x0 CMakeFiles/project1.dir/unit_helper_v2.c.o
- *fill*         0x00000000000281d0       0x10 
- .data          0x00000000000281e0      0x2b8 CMakeFiles/project1.dir/unit_test_v2.c.o
- .data          0x0000000000028498        0x0 CMakeFiles/project1.dir/rdebug.c.o
- *fill*         0x0000000000028498        0x8 
+                0x00000000000291c8        0x8 /usr/lib/gcc/x86_64-linux-gnu/8/crtbeginS.o
+                0x00000000000291c8                __dso_handle
+ .data          0x00000000000291d0        0x0 CMakeFiles/project1.dir/main.c.o
+ .data          0x00000000000291d0        0x0 CMakeFiles/project1.dir/heap.c.o
+ .data          0x00000000000291d0        0x0 CMakeFiles/project1.dir/unit_helper_v2.c.o
+ *fill*         0x00000000000291d0       0x10 
+ .data          0x00000000000291e0      0x2b8 CMakeFiles/project1.dir/unit_test_v2.c.o
+ .data          0x0000000000029498        0x0 CMakeFiles/project1.dir/rdebug.c.o
+ *fill*         0x0000000000029498        0x8 
  .data.rel.local
-                0x00000000000284a0      0x1d0 CMakeFiles/project1.dir/rdebug.c.o
- .data          0x0000000000028670        0x0 CMakeFiles/project1.dir/memmanager.c.o
- .data          0x0000000000028670        0x0 //usr/lib/x86_64-linux-gnu/libc_nonshared.a(elf-init.oS)
- .data          0x0000000000028670        0x0 /usr/lib/gcc/x86_64-linux-gnu/8/crtendS.o
- .data          0x0000000000028670        0x0 /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/crtn.o
+                0x00000000000294a0      0x1d0 CMakeFiles/project1.dir/rdebug.c.o
+ .data          0x0000000000029670        0x0 CMakeFiles/project1.dir/memmanager.c.o
+ .data          0x0000000000029670        0x0 //usr/lib/x86_64-linux-gnu/libc_nonshared.a(elf-init.oS)
+ .data          0x0000000000029670        0x0 /usr/lib/gcc/x86_64-linux-gnu/8/crtendS.o
+ .data          0x0000000000029670        0x0 /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/crtn.o
 
 .tm_clone_table
-                0x0000000000028670        0x0
+                0x0000000000029670        0x0
  .tm_clone_table
-                0x0000000000028670        0x0 /usr/lib/gcc/x86_64-linux-gnu/8/crtbeginS.o
+                0x0000000000029670        0x0 /usr/lib/gcc/x86_64-linux-gnu/8/crtbeginS.o
  .tm_clone_table
-                0x0000000000028670        0x0 /usr/lib/gcc/x86_64-linux-gnu/8/crtendS.o
+                0x0000000000029670        0x0 /usr/lib/gcc/x86_64-linux-gnu/8/crtendS.o
 
 .data1
  *(.data1)
-                0x0000000000028670                _edata = .
+                0x0000000000029670                _edata = .
                 [!provide]                        PROVIDE (edata = .)
-                0x0000000000028670                . = .
-                0x0000000000028670                __bss_start = .
+                0x0000000000029670                . = .
+                0x0000000000029670                __bss_start = .
 
-.bss            0x0000000000029000  0x4005058
+.bss            0x000000000002a000  0x4005058
  *(.dynbss)
- .dynbss        0x0000000000029000       0x28 /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/Scrt1.o
-                0x0000000000029000                stdout@@GLIBC_2.2.5
-                0x0000000000029010                stdin@@GLIBC_2.2.5
-                0x0000000000029020                stderr@@GLIBC_2.2.5
+ .dynbss        0x000000000002a000       0x28 /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/Scrt1.o
+                0x000000000002a000                stdout@@GLIBC_2.2.5
+                0x000000000002a010                stdin@@GLIBC_2.2.5
+                0x000000000002a020                stderr@@GLIBC_2.2.5
  *(.bss .bss.* .gnu.linkonce.b.*)
- .bss           0x0000000000029028        0x0 /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/Scrt1.o
- .bss           0x0000000000029028        0x0 /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/crti.o
- .bss           0x0000000000029028        0x1 /usr/lib/gcc/x86_64-linux-gnu/8/crtbeginS.o
- .bss           0x0000000000029029        0x0 CMakeFiles/project1.dir/main.c.o
- .bss           0x0000000000029029        0x0 CMakeFiles/project1.dir/heap.c.o
- *fill*         0x0000000000029029       0x17 
- .bss           0x0000000000029040       0x90 CMakeFiles/project1.dir/unit_helper_v2.c.o
- .bss           0x00000000000290d0        0x0 CMakeFiles/project1.dir/unit_test_v2.c.o
- *fill*         0x00000000000290d0       0x10 
- .bss           0x00000000000290e0      0x300 CMakeFiles/project1.dir/rdebug.c.o
- .bss           0x00000000000293e0        0x0 CMakeFiles/project1.dir/memmanager.c.o
- .bss           0x00000000000293e0        0x0 //usr/lib/x86_64-linux-gnu/libc_nonshared.a(elf-init.oS)
- .bss           0x00000000000293e0        0x0 /usr/lib/gcc/x86_64-linux-gnu/8/crtendS.o
- .bss           0x00000000000293e0        0x0 /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/crtn.o
+ .bss           0x000000000002a028        0x0 /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/Scrt1.o
+ .bss           0x000000000002a028        0x0 /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/crti.o
+ .bss           0x000000000002a028        0x1 /usr/lib/gcc/x86_64-linux-gnu/8/crtbeginS.o
+ .bss           0x000000000002a029        0x0 CMakeFiles/project1.dir/main.c.o
+ .bss           0x000000000002a029        0x0 CMakeFiles/project1.dir/heap.c.o
+ *fill*         0x000000000002a029       0x17 
+ .bss           0x000000000002a040       0x90 CMakeFiles/project1.dir/unit_helper_v2.c.o
+ .bss           0x000000000002a0d0        0x0 CMakeFiles/project1.dir/unit_test_v2.c.o
+ *fill*         0x000000000002a0d0       0x10 
+ .bss           0x000000000002a0e0      0x300 CMakeFiles/project1.dir/rdebug.c.o
+ .bss           0x000000000002a3e0        0x0 CMakeFiles/project1.dir/memmanager.c.o
+ .bss           0x000000000002a3e0        0x0 //usr/lib/x86_64-linux-gnu/libc_nonshared.a(elf-init.oS)
+ .bss           0x000000000002a3e0        0x0 /usr/lib/gcc/x86_64-linux-gnu/8/crtendS.o
+ .bss           0x000000000002a3e0        0x0 /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/crtn.o
  *(COMMON)
- COMMON         0x00000000000293e0       0x18 CMakeFiles/project1.dir/main.c.o
-                0x00000000000293e0                memory_manager
- *fill*         0x00000000000293f8      0xc08 
- COMMON         0x000000000002a000  0x4004058 CMakeFiles/project1.dir/memmanager.c.o
-                0x000000000002a000                memory
-                0x000000000402c000                mm
-                0x000000000402e058                . = ALIGN ((. != 0x0)?0x8:0x1)
+ COMMON         0x000000000002a3e0       0x18 CMakeFiles/project1.dir/main.c.o
+                0x000000000002a3e0                memory_manager
+ *fill*         0x000000000002a3f8      0xc08 
+ COMMON         0x000000000002b000  0x4004058 CMakeFiles/project1.dir/memmanager.c.o
+                0x000000000002b000                memory
+                0x000000000402d000                mm
+                0x000000000402f058                . = ALIGN ((. != 0x0)?0x8:0x1)
 
 .lbss
  *(.dynlbss)
  *(.lbss .lbss.* .gnu.linkonce.lb.*)
  *(LARGE_COMMON)
-                0x000000000402e058                . = ALIGN (0x8)
-                0x000000000402e058                . = SEGMENT_START ("ldata-segment", .)
+                0x000000000402f058                . = ALIGN (0x8)
+                0x000000000402f058                . = SEGMENT_START ("ldata-segment", .)
 
 .lrodata
  *(.lrodata .lrodata.* .gnu.linkonce.lr.*)
 
-.ldata          0x0000000004030058        0x0
+.ldata          0x0000000004031058        0x0
  *(.ldata .ldata.* .gnu.linkonce.l.*)
-                0x0000000004030058                . = ALIGN ((. != 0x0)?0x8:0x1)
-                0x0000000004030058                . = ALIGN (0x8)
-                0x0000000004030058                _end = .
+                0x0000000004031058                . = ALIGN ((. != 0x0)?0x8:0x1)
+                0x0000000004031058                . = ALIGN (0x8)
+                0x0000000004031058                _end = .
                 [!provide]                        PROVIDE (end = .)
-                0x0000000004030058                . = DATA_SEGMENT_END (.)
+                0x0000000004031058                . = DATA_SEGMENT_END (.)
 
 .stab
  *(.stab)
@@ -1480,49 +1484,49 @@ LOAD /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/crtn.o
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x0000000000000000     0x75a7
+.debug_info     0x0000000000000000     0x768b
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x0000000000000000      0x480 CMakeFiles/project1.dir/main.c.o
- .debug_info    0x0000000000000480      0x788 CMakeFiles/project1.dir/heap.c.o
- .debug_info    0x0000000000000c08      0xd1c CMakeFiles/project1.dir/unit_helper_v2.c.o
- .debug_info    0x0000000000001924     0x3768 CMakeFiles/project1.dir/unit_test_v2.c.o
- .debug_info    0x000000000000508c     0x1c01 CMakeFiles/project1.dir/rdebug.c.o
- .debug_info    0x0000000000006c8d      0x91a CMakeFiles/project1.dir/memmanager.c.o
+ .debug_info    0x0000000000000480      0x86c CMakeFiles/project1.dir/heap.c.o
+ .debug_info    0x0000000000000cec      0xd1c CMakeFiles/project1.dir/unit_helper_v2.c.o
+ .debug_info    0x0000000000001a08     0x3768 CMakeFiles/project1.dir/unit_test_v2.c.o
+ .debug_info    0x0000000000005170     0x1c01 CMakeFiles/project1.dir/rdebug.c.o
+ .debug_info    0x0000000000006d71      0x91a CMakeFiles/project1.dir/memmanager.c.o
 
-.debug_abbrev   0x0000000000000000      0xd5f
+.debug_abbrev   0x0000000000000000      0xdce
  *(.debug_abbrev)
  .debug_abbrev  0x0000000000000000       0xf5 CMakeFiles/project1.dir/main.c.o
- .debug_abbrev  0x00000000000000f5      0x1ef CMakeFiles/project1.dir/heap.c.o
- .debug_abbrev  0x00000000000002e4      0x331 CMakeFiles/project1.dir/unit_helper_v2.c.o
- .debug_abbrev  0x0000000000000615      0x228 CMakeFiles/project1.dir/unit_test_v2.c.o
- .debug_abbrev  0x000000000000083d      0x306 CMakeFiles/project1.dir/rdebug.c.o
- .debug_abbrev  0x0000000000000b43      0x21c CMakeFiles/project1.dir/memmanager.c.o
+ .debug_abbrev  0x00000000000000f5      0x25e CMakeFiles/project1.dir/heap.c.o
+ .debug_abbrev  0x0000000000000353      0x331 CMakeFiles/project1.dir/unit_helper_v2.c.o
+ .debug_abbrev  0x0000000000000684      0x228 CMakeFiles/project1.dir/unit_test_v2.c.o
+ .debug_abbrev  0x00000000000008ac      0x306 CMakeFiles/project1.dir/rdebug.c.o
+ .debug_abbrev  0x0000000000000bb2      0x21c CMakeFiles/project1.dir/memmanager.c.o
 
-.debug_line     0x0000000000000000     0x9009
+.debug_line     0x0000000000000000     0x911c
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x0000000000000000      0x548 CMakeFiles/project1.dir/main.c.o
- .debug_line    0x0000000000000548      0x7fe CMakeFiles/project1.dir/heap.c.o
- .debug_line    0x0000000000000d46      0x9d2 CMakeFiles/project1.dir/unit_helper_v2.c.o
- .debug_line    0x0000000000001718     0x5c18 CMakeFiles/project1.dir/unit_test_v2.c.o
- .debug_line    0x0000000000007330     0x1419 CMakeFiles/project1.dir/rdebug.c.o
- .debug_line    0x0000000000008749      0x8c0 CMakeFiles/project1.dir/memmanager.c.o
+ .debug_line    0x0000000000000548      0x911 CMakeFiles/project1.dir/heap.c.o
+ .debug_line    0x0000000000000e59      0x9d2 CMakeFiles/project1.dir/unit_helper_v2.c.o
+ .debug_line    0x000000000000182b     0x5c18 CMakeFiles/project1.dir/unit_test_v2.c.o
+ .debug_line    0x0000000000007443     0x1419 CMakeFiles/project1.dir/rdebug.c.o
+ .debug_line    0x000000000000885c      0x8c0 CMakeFiles/project1.dir/memmanager.c.o
 
 .debug_frame
  *(.debug_frame)
 
-.debug_str      0x0000000000000000    0x12c93
+.debug_str      0x0000000000000000    0x12cbd
  *(.debug_str)
  .debug_str     0x0000000000000000     0xaca1 CMakeFiles/project1.dir/main.c.o
                                        0xafd6 (size before relaxing)
- .debug_str     0x000000000000aca1      0x172 CMakeFiles/project1.dir/heap.c.o
-                                       0xb133 (size before relaxing)
- .debug_str     0x000000000000ae13     0x3119 CMakeFiles/project1.dir/unit_helper_v2.c.o
+ .debug_str     0x000000000000aca1      0x19c CMakeFiles/project1.dir/heap.c.o
+                                       0xb162 (size before relaxing)
+ .debug_str     0x000000000000ae3d     0x3119 CMakeFiles/project1.dir/unit_helper_v2.c.o
                                        0x9ed4 (size before relaxing)
- .debug_str     0x000000000000df2c      0x5f0 CMakeFiles/project1.dir/unit_test_v2.c.o
+ .debug_str     0x000000000000df56      0x5f0 CMakeFiles/project1.dir/unit_test_v2.c.o
                                        0xcdc4 (size before relaxing)
- .debug_str     0x000000000000e51c     0x2a58 CMakeFiles/project1.dir/rdebug.c.o
+ .debug_str     0x000000000000e546     0x2a58 CMakeFiles/project1.dir/rdebug.c.o
                                        0xf399 (size before relaxing)
- .debug_str     0x0000000000010f74     0x1d1f CMakeFiles/project1.dir/memmanager.c.o
+ .debug_str     0x0000000000010f9e     0x1d1f CMakeFiles/project1.dir/memmanager.c.o
                                        0xd28e (size before relaxing)
 
 .debug_loc
@@ -2656,6 +2660,7 @@ cexpl@GLIBC_2.2.5                                 //lib/x86_64-linux-gnu/libm.so
 chdir                                             //lib/x86_64-linux-gnu/libc.so.6
 chdir@@GLIBC_2.2.5                                //lib/x86_64-linux-gnu/libc.so.6
 chdir@GLIBC_2.2.5                                 //lib/x86_64-linux-gnu/libc.so.6
+check_destroy                                     CMakeFiles/project1.dir/heap.c.o
 check_mem_holes                                   CMakeFiles/project1.dir/heap.c.o
 chmod                                             //lib/x86_64-linux-gnu/libc.so.6
 chmod@@GLIBC_2.2.5                                //lib/x86_64-linux-gnu/libc.so.6
@@ -4210,6 +4215,7 @@ group_member@GLIBC_2.2.5                          //lib/x86_64-linux-gnu/libc.so
 gsignal                                           //lib/x86_64-linux-gnu/libc.so.6
 gsignal@@GLIBC_2.2.5                              //lib/x86_64-linux-gnu/libc.so.6
 gsignal@GLIBC_2.2.5                               //lib/x86_64-linux-gnu/libc.so.6
+hash_calculate                                    CMakeFiles/project1.dir/heap.c.o
 hasmntopt                                         //lib/x86_64-linux-gnu/libc.so.6
 hasmntopt@@GLIBC_2.2.5                            //lib/x86_64-linux-gnu/libc.so.6
 hasmntopt@GLIBC_2.2.5                             //lib/x86_64-linux-gnu/libc.so.6
@@ -4226,6 +4232,7 @@ heap_calloc                                       CMakeFiles/project1.dir/heap.c
                                                   CMakeFiles/project1.dir/unit_test_v2.c.o
 heap_clean                                        CMakeFiles/project1.dir/heap.c.o
                                                   CMakeFiles/project1.dir/unit_test_v2.c.o
+heap_connect                                      CMakeFiles/project1.dir/heap.c.o
 heap_free                                         CMakeFiles/project1.dir/heap.c.o
                                                   CMakeFiles/project1.dir/unit_test_v2.c.o
 heap_get_largest_used_block_size                  CMakeFiles/project1.dir/heap.c.o
