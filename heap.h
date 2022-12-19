@@ -49,3 +49,5 @@ size_t heap_get_largest_used_block_size(void);
 enum pointer_type_t get_pointer_type(const void* const pointer);
 
 int heap_validate(void);
+
+void heap_connect(struct memory_chunk_t *mem);

@@ -31,6 +31,7 @@ void heap_clean(void)
     custom_sbrk(memory_manager.memory_size*(-1));
     memory_manager.memory_size = 0;
     memory_manager.first_memory_chunk = NULL;
+    memory_manager.memory_start = NULL;
 }
 
 struct memory_chunk_t *check_mem_holes(size_t needed_size)
@@ -156,24 +157,90 @@ void* heap_realloc(void* memblock, size_t count)
         return NULL;
     }
 
+    if(memory_manager.memory_start == NULL) {
+        return NULL;
+    }
+
+    if(count == 0) {
+        heap_free(memblock);
+
+        return NULL;
+    }
+
     if(memblock == NULL) {
-        return (char *)heap_malloc(count);
+        char *tmp = heap_malloc(count);
+        if(!tmp) {
+            return NULL;
+        }
+
+        return tmp;
     }
 
     struct memory_chunk_t *tmp;
 
-    tmp = (struct memory_chunk_t*)memblock - sizeof(struct memory_chunk_t) - PLOTEK;
+    tmp = (struct memory_chunk_t*)((char*)memblock - sizeof(struct memory_chunk_t) - PLOTEK);
 
-    if(tmp->size > count) {
+    if(tmp->next != NULL) {
+        size_t size = (char*)tmp->next - (char*)tmp - sizeof(struct memory_chunk_t) - PLOTEK*2;
+        if(size > tmp->size) {
+            tmp->size = size;
+        }
+    }
+
+    if(tmp->size >= count) {
+        tmp->size = count;
+
+        memset((char*)memblock + tmp->size, '#', 4);
+
+        hash_calculate(tmp);
+
+        return memblock;
+    }
+
+    if(tmp->size == count) {
+        return memblock;
+    }
+
+    //spr. czy nast blok == NULL
+
+    if(tmp->next == NULL) {
+        void *new_mem = custom_sbrk(count - tmp->size);
+        if (new_mem == (void *) -1) {
+            new_mem = NULL;
+            return NULL;
+        }
+
+        memory_manager.memory_size += count - tmp->size;
+
+        tmp->size = count;
+
+        memset((char*)memblock+tmp->size, '#', 4);
+
+        hash_calculate(tmp);
+
+        return memblock;
+    }
+
+    //sprawdzic nast. blok
+    heap_connect(memory_manager.first_memory_chunk);
+
+    if(tmp->next && tmp->next->free && tmp->size+tmp->next->size + sizeof(struct memory_chunk_t) + PLOTEK*2 >= count) {
+        tmp->next = tmp->next->next;
         tmp->size = count;
 
         hash_calculate(tmp);
 
-        return (char *)tmp + sizeof(struct memory_chunk_t) + PLOTEK;
+
+        if(tmp->next->next) {
+            tmp->next->next->prev = tmp;
+
+            hash_calculate(tmp->next->next);
+        }
+
+        memset((char*)memblock+tmp->size, '#', 4);
+
+        return memblock;
     }
-
-    //sprawdzic nast. blok
-
 
 
     struct memory_chunk_t *new = heap_malloc(count);
@@ -238,7 +305,9 @@ void check_destroy(struct memory_chunk_t *mem)
     }
 
     if(flag) {
-        heap_clean();
+        custom_sbrk(memory_manager.memory_size*(-1));
+        memory_manager.memory_size = 0;
+        memory_manager.first_memory_chunk = NULL;
     }
 }
 
@@ -256,6 +325,13 @@ void heap_free(void* memblock)
     while (tmp != NULL) {
         if((char*)tmp +PLOTEK + sizeof(struct memory_chunk_t) == (char*)memblock  ) {
             tmp->free = 1;
+
+            if(tmp->next != NULL) {
+                size_t size = (char*)tmp->next - (char*)tmp - sizeof(struct memory_chunk_t) - PLOTEK*2;
+                if(size > tmp->size) {
+                    tmp->size = size;
+                }
+            }
 
             hash_calculate(tmp);
 
@@ -357,21 +433,24 @@ int hash_check(struct memory_chunk_t *mem)
 
 int heap_validate(void)
 {
+    if(memory_manager.memory_start == NULL && memory_manager.first_memory_chunk == NULL) {
+        return 2;
+    }
+
     struct memory_chunk_t *tmp = memory_manager.first_memory_chunk;
     if(tmp == NULL) {
         return 0;
     }
 
-
     do {
+        if(hash_check(tmp)) {
+            return 3;
+        }
+
         for(int i = 0; i < PLOTEK; i++) {
             if(*((char*)tmp + sizeof(struct memory_chunk_t) + i) != '#' || *((char*)tmp+ sizeof(struct memory_chunk_t) + i + 4 + tmp->size) != '#') {
                 return 1;
             }
-        }
-
-        if(hash_check(tmp)) {
-            return 3;
         }
 
         tmp = tmp->next;
