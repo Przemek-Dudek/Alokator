@@ -243,15 +243,17 @@ void* heap_realloc(void* memblock, size_t count)
     }
 
 
-    struct memory_chunk_t *new = heap_malloc(count);
+    char *new = heap_malloc(count);
 
     if(!new) {
         return NULL;
     }
 
     for(size_t i = 0; i < tmp->size; i++) {
-        *(new+i) = *(tmp+i);
+        *((char*)new+i) = *((char*)tmp + PLOTEK + sizeof(struct memory_chunk_t)+i);
     }
+
+    heap_free((char *)tmp + PLOTEK + sizeof(struct memory_chunk_t));
 
     return new;
 }
